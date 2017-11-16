@@ -29,14 +29,14 @@ a.btn-outline {
   color: $teil;
   padding: rem(15px);
   margin: auto;
-  font: 400 rem(16px) $alternate;
+  font: 400 rem(16px) $sans-serif;
   text-transform: uppercase;
   border: 1px solid $teil;
   text-decoration: none;
   @include border-radius(3px);
   &:hover, 
   &:active {
-    color: $blue;
-    border-color: $blue;
+    //color: $blue;
+    //border-color: $blue;
   }
 }

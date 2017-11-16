@@ -26,22 +26,25 @@ nav {
 }
 
 a, button {
-  @include transition(all .3s ease-in-out);
+  @include transition(all .5s ease-in-out);
   text-decoration: none;
   color: $teil;
 }
+h1 {
 
+}
+h2 {
+
+}
 h3 {
-  font: 700 rem(22px) $serif;
-  text-transform: uppercase;
-  padding-bottom: rem(25px);  
+
 }
 
 h4 {
-  font-family: $alternate;
-  font-size: rem(15px);
-  text-transform: uppercase;
-  padding-bottom: rem(40px);
+
+}
+h5 {
+
 }
 
 p {
@@ -50,6 +53,118 @@ p {
 }
 span.break {
   display: block;
+}
+
+.app {
+    width: 100%;
+    @include flexbox();
+    min-height: 100vh;
+    @include flex-direction(column);
+    position: relative;
+    font-family: $sans-serif;
+}
+.container {
+    @include flexbox();
+    @include flex(1);
+}
+
+// Menu Section
+
+.menu {
+    @include flex(0 0 rem(300px));
+    min-height: 100vh;
+    z-index: 2;
+    text-align: right;
+    background-color: $base-gray;
+    @include box-shadow(rem(30px) 0 rem(50px) black(.5));
+    display: block;
+    position: fixed;
+    .logo-block {
+        background-color: $white;
+        padding: rem(30px);
+        text-align: center;
+    }
+    nav {       
+        a:nth-child(1) {
+            background: linear-gradient(darken($nav-gray1, 5%),darken($nav-gray2, 5%));
+            border-bottom: 1px solid darken($nav-border, 2.5%);
+        }
+        a:nth-child(2) {
+            background: linear-gradient(darken($nav-gray1, 4%),darken($nav-gray2, 4%));
+            border-bottom: 1px solid darken($nav-border, 2%);
+        }
+        a:nth-child(3) {
+            background: linear-gradient(darken($nav-gray1, 3%),darken($nav-gray2, 3%));
+            border-bottom: 1px solid darken($nav-border, 1.5%);
+        }
+        a:nth-child(4) {
+            background: linear-gradient(darken($nav-gray1, 2%),darken($nav-gray2, 2%));
+            border-bottom: 1px solid darken($nav-border, 1%);
+        }
+        a:nth-child(5) {
+            background: linear-gradient(darken($nav-gray1, 1%),darken($nav-gray2, 1%));
+            border-bottom: 1px solid darken($nav-border, .5%);
+        }
+        a:nth-child(6) {
+            background: linear-gradient($nav-gray1,$nav-gray2);
+            border-bottom: 1px solid $nav-border;
+        }
+        a {
+            color: $white;
+            display: block;
+            padding: rem(20px);
+            font-family: $sans-serif;
+            text-transform: uppercase;
+            
+            &:hover {
+                //background: $teil;
+               // background: linear-gradient($teil,darken($teil, 10%));
+               background: linear-gradient(lighten($nav-gray1, 2%),lighten($nav-gray2, 2%));
+               
+
+            }
+        }
+        .router-link-exact-active.router-link-active          {
+            background: linear-gradient($teil,darken($teil, 10%));
+        }
+    }
+}
+
+// Main Section
+
+.main {    
+    z-index: 1;
+    @include flex(1);
+}
+.grid {
+    .grid-cell {
+        min-width: rem(320px);
+        max-width: rem(405px);
+        color: $white;
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+    .odd {
+
+    }
+}
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
 }
 
 // Animations

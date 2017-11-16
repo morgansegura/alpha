@@ -2,13 +2,13 @@
   Font Basics
 */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto|Hammersmith+One:400,700|Work+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Potano+Sans');
 
 // font stacks
-$sans-serif:        "Roboto","Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif:        "Potano Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Roboto Slab","Georgia", "Cambria", "Times New Roman", Times, serif;
-$alternate:         "Hammersmith One", $sans-serif;
-$sans-thin:         "Work Sans", $sans-serif;
+
+
 
 
 p {
