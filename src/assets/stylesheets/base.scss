@@ -28,6 +28,7 @@ nav {
 a, button {
   @include transition(all .3s ease-in-out);
   text-decoration: none;
+  color: $teil;
 }
 
 h3 {

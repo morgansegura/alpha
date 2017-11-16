@@ -9,6 +9,7 @@ import About from './components/About'
 import Blog from './components/Blog'
 import Services from './components/Services'
 import Contact from './components/Contact'
+import './assets/stylesheets/base.scss'
 
 Vue.use(VueRouter)
 
