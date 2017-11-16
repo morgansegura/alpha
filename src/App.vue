@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <!-- the router outlet, where all matched components would ber viewed -->
+    <router-link v-bind:to="'/'">Home</router-link>
+    <router-link v-bind:to="'/work'">Work</router-link>
+    <router-link v-bind:to="'/about'">About</router-link>
+    <router-link v-bind:to="'/blog'">Blog</router-link>
+    <router-link v-bind:to="'/services'">Services</router-link>
+    <router-link v-bind:to="'/contact'">Contact</router-link>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -10,7 +17,7 @@ export default {
   name: 'app'
 }
 </script>
-
+<!-- styling for the component -->
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

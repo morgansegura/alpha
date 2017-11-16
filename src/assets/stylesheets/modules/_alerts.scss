@@ -1,0 +1,33 @@
+
+/*-- ALERTS --*/
+
+// alerts and notices
+%alert {
+  margin: 10px;
+  padding: rem(5px) rem(18px);
+  border: rem(1px) solid;
+}
+
+.alert-help {
+  @extend %alert;
+  border-color: darken($alert-yellow, 5%);
+  background: $alert-yellow;
+}
+
+.alert-info {
+  @extend %alert;
+  border-color: darken($alert-blue, 5%);
+  background: $alert-blue;
+}
+
+.alert-error {
+  @extend %alert;
+  border-color: darken($alert-red, 5%);
+  background: $alert-red;
+}
+
+.alert-success {
+  @extend %alert;
+  border-color: darken($alert-green, 5%);
+  background: $alert-green;
+}

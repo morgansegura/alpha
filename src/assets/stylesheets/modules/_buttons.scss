@@ -1,0 +1,42 @@
+
+/*-- BUTTONS --*/
+
+%btn {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  font-weight: normal;
+  border: 0;
+  cursor: pointer;
+  @include transition(all 0.14s ease-in-out);
+  @include border-radius(rem(5px));
+  &:hover, &:focus {
+    text-decoration: none;
+    outline: none;
+  } 
+  &:active {
+    top: rem(1px);
+  }
+}
+
+// Outline Button
+a.btn-outline {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  color: $teil;
+  padding: rem(15px);
+  margin: auto;
+  font: 400 rem(16px) $alternate;
+  text-transform: uppercase;
+  border: 1px solid $teil;
+  text-decoration: none;
+  @include border-radius(3px);
+  &:hover, 
+  &:active {
+    color: $blue;
+    border-color: $blue;
+  }
+}
