@@ -25,10 +25,9 @@ nav {
 	list-style: none;
 }
 
-a, button {
+a, button, label {
   @include transition(all .5s ease-in-out);
   text-decoration: none;
-  color: $teil;
 }
 h1 {
 
@@ -51,6 +50,12 @@ p {
   font: 400 rem(14px) $sans-serif;
   line-height: 1.7;
 }
+
+hr {
+    border: none;
+    height: rem(1px);
+}
+
 span.break {
   display: block;
 }
@@ -72,17 +77,112 @@ span.break {
 
 .menu {
     @include flex(0 0 rem(300px));
+    position: relative;
     min-height: 100vh;
     z-index: 2;
     text-align: right;
     background-color: $base-gray;
     @include box-shadow(rem(30px) 0 rem(50px) black(.5));
     display: block;
-    position: fixed;
+    color: $light-gray;
+    hr {
+        background-color: darken($nav-border, 2%);
+        margin-top: rem(15px); 
+    }
+    .fixed {
+        position: fixed;
+        width: rem(300px);
+    }
     .logo-block {
         background-color: $white;
         padding: rem(30px);
         text-align: center;
+        font-family: $sans-serif;
+
+        h2 {
+            font-size: rem(50px);
+            color: $base-gray;
+            text-shadow: 0 rem(2px) 0 black(.2);
+            font-weight: bold;
+            letter-spacing: rem(-2px);
+        }
+    }
+    .filter {
+        padding-right: rem(20px);
+
+        h3 {
+            color: $teil;
+            text-transform: uppercase;
+            font-size: rem(19px);
+            padding: rem(25px) 0;
+            i {
+                padding-left: rem(10px);
+            }
+        }
+        a {
+            display: block;
+            cursor: pointer;
+            color: $light-gray;
+            padding-bottom: rem(5px);
+
+            &:hover {
+                color: #ccc;
+            }
+        }
+        input[type="radio"] {
+            //visibility:hidden;
+        }
+        .filtered {
+            color: $white;
+            &:hover {
+                color: $white; 
+            }
+        }
+    }
+    .social-media {
+        padding: rem(20px);
+        a {
+            padding: rem(13px);
+
+            display: inline-block;
+            @include border-radius(rem(5px));
+            position: relative;
+            color: $white;
+            margin-left: rem(5px);
+
+            &:hover {
+                @include opacity(.8);
+            }
+        }
+        i {
+            @include centerer();
+        }
+        a:nth-child(1) {
+            i {
+                font-size: rem(30px);
+                color: $white;
+            }
+        }
+        
+        a:nth-child(2) {
+            background-color: #cd4521;
+        }
+        a:nth-child(3),
+        a:nth-child(6) {
+            background-color: #2daee3;
+        }
+        a:nth-child(4) {
+            background-color: #d32e21;
+        }
+        a:nth-child(5) {
+            background-color: #fb51ad;
+        }
+        a:nth-child(7) {
+            background-color: #2d4585;
+        }
+    }
+    .copyright {
+        padding: 0 rem(20px) rem(20px) rem(20px) ;
     }
     nav {       
         a:nth-child(1) {
@@ -115,10 +215,11 @@ span.break {
             padding: rem(20px);
             font-family: $sans-serif;
             text-transform: uppercase;
-            
+            @include transition(all .5s ease-in-out);             
             &:hover {
                 //background: $teil;
                // background: linear-gradient($teil,darken($teil, 10%));
+               @include transition(all .5s ease-in-out);               
                background: linear-gradient(lighten($nav-gray1, 2%),lighten($nav-gray2, 2%));
                
 
@@ -132,39 +233,63 @@ span.break {
 
 // Main Section
 
-.main {    
+.content {    
     z-index: 1;
     @include flex(1);
 }
 .grid {
     .grid-cell {
+        @include animation(1s fadein 0.5s forwards);
+        @include opacity(0);
         min-width: rem(320px);
-        max-width: rem(405px);
+        max-width: rem(810px);
         color: $white;
+        overflow: hidden;
         img {
             width: 100%;
             display: block;
         }
-    }
-    .odd {
+        a {
+            position: relative;
+            display: block;
+            background-color: $teil;
 
+            &:hover {
+                img {
+                    @include transition(all .5s ease-in-out);
+                    @include animation(1s fadeout 0.05s forwards);
+                    @include transform(scale(1.1));
+                }
+                .grid-hover {
+                   @include opacity(1);
+                }
+            }
+        }
+        .grid-hover {
+            content: '';
+            @include opacity(0);
+            @include centerer();
+            text-align: center;
+            color: $white;
+            h3 {
+                font-size: rem(24px);
+            }
+            p {
+                font-size: rem(12px);
+            }
+            hr {
+                max-width: rem(100px);
+                margin: rem(15px) auto;
+                background-color: $white;
+            }
+            i {
+                @include border-radius(100%);
+                border: rem(1px) solid $white;
+                font-size: rem(20px); 
+                padding: rem(15px) rem(17px) rem(15px) rem(17px);
+            }
+        }
     }
-}
-
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
-.cf:after {
-    clear: both;
-}
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
 }
 
 // Animations
@@ -172,6 +297,11 @@ span.break {
 @keyframes fadein {
 	100% {
 		opacity: 1;
+	}
+}
+@keyframes fadeout {
+	100% {
+		opacity: .1;
 	}
 }
 

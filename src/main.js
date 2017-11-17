@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Work from './components/Work'
 import About from './components/About'
 import Blog from './components/Blog'
+import Blog from './components/addBlog'
 import Services from './components/Services'
 import Contact from './components/Contact'
 import './assets/stylesheets/base.scss'
@@ -18,6 +19,7 @@ const routes = [
   {path: '/work', component: Work},
   {path: '/about', component: About},
   {path: '/blog', component: Blog},
+  {path: '/add-blog', component: addBlog},
   {path: '/services', component: Services},
   {path: '/contact', component: Contact}
 
