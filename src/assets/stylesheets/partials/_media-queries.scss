@@ -1,29 +1,73 @@
 
 /*-- MEDIA QUERIES --*/
 
-@media all and (max-width: rem(800px)) {
-
-    .app {
-
+@media all and (max-width: rem(1440px)) { // col-xl
+    button.hamburger {
+        position: absolute;
+        left: rem(30px); 
+        top: rem(40px); 
+        @include opacity(0);
+    }
+    .fixed,
+    .backdrop {
+        @include transition(all .3s ease-in-out);
+    }
+    .top {
+        margin-top: 0;
+        margin-left: rem(280px);
     }
     .menu {
+        @include box-shadow(0 rem(-30px) rem(50px) black(.5));
+        .fixed {
+            position: fixed;           
+        }  
+        .backdrop {
+            background-color: $base-gray;
+            min-height: 100vh;
+            display: block;
+            max-width: rem(280px);
+            left:0;         
+        }
+    }
+}
 
+@media all and (max-width: rem(1280px)) { // col-lg
+
+}  
+
+@media all and (max-width: rem(1024px)) { // col-md
+
+}
+
+@media all and (max-width: rem(768px)) { // col-sm
+
+    .top {
+        margin-top: rem(132px);
+        margin-left: 0;
     }
-    .grid {
-        
-    }
-    .container {
-        //max-width: rem();    
+    .menu {
+        @include box-shadow(rem(-50px) 0 rem(50px) black(.5));
+        .hamburger {
+            @include opacity(1);
+        }        
+        .fixed {
+            position: fixed;
+            width: 100%;            
+            &.on {                
+                background-color: black(.5);
+            }
+            &.on .backdrop {
+                left: 0;
+            }
+        }  
+        .backdrop {
+            position: relative;
+            left: rem(-300px);            
+        }
     }
 }
 
-
-@media all and (max-width: rem(1000px)) {
+@media all and (max-width: rem(512px)) { // col-xs
 
 }
 
-@media all and (max-width: rem(1024px)) {
-    .container {
-            
-    }
-}

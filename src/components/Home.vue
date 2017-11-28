@@ -1,14 +1,14 @@
 <template>
   <div class="content main">
-    <div class="grid">
+    <div class="grid top row">
       <!--  -->
-      <div v-for="grid in filteredItems" class="grid-cell">
+      <div v-for="(grid, index) in filteredItems" :key="index" class="grid-cell col-xs-6 col-sm-6 col-md-4 col-lg-4">
         <a :href="grid.url">
           <img :src="grid.image" :alt="grid.title" />
           <div class="grid-hover">
             <h3>{{grid.title}}</h3>
             <p>
-              <span v-for="(tag, index) in grid.tags">{{tag}}
+              <span v-for="(tag, index) in grid.tags" :key="index">{{tag}}
                 <span v-if="index+1 < grid.tags.length">,</span>&nbsp; 
               </span> 
             </p>

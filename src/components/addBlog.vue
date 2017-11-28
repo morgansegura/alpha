@@ -43,7 +43,7 @@
 <script>
 // Imports
 export default {
-  name: "Add Blog",
+  name: 'add',
   data () {
     return {
       blog: {
@@ -52,11 +52,21 @@ export default {
         categories: [],
         author: ''
       },
-      authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator'],
+      authors: ['Morgan Segura'],
       submitted: false
     }
   },
   methods: {
+    addPost: function () {
+      this.$http.post('http://jsonplaceholder.typicode.com/posts', {
+        title: this.blog.title,
+        body: this.blog.content,
+        userId: 1
+      }).then(function (data) {
+        console.log(data)
+        this.submitted = true
+      })
+    }
   }
 }
 </script>

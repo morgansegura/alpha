@@ -2,12 +2,12 @@
   Font Basics
 */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Ropa+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Open+Sans|Ropa+Sans');
 
 // font stacks
-$sans-serif:        "Ropa Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif:        "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Roboto Slab","Georgia", "Cambria", "Times New Roman", Times, serif;
-
+$alternate:         "Ropa Sans", $sans-serif;
 
 
 

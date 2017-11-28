@@ -3,16 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import Home from './components/Home'
 import Work from './components/Work'
 import About from './components/About'
 import Blog from './components/Blog'
-import Blog from './components/addBlog'
+import addBlog from './components/addBlog'
 import Services from './components/Services'
 import Contact from './components/Contact'
-import './assets/stylesheets/base.scss'
 
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 const routes = [
   {path: '/', component: Home},

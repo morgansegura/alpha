@@ -10,33 +10,55 @@
   border: 0;
   cursor: pointer;
   @include transition(all 0.14s ease-in-out);
-  @include border-radius(rem(5px));
   &:hover, &:focus {
     text-decoration: none;
     outline: none;
   } 
   &:active {
-    top: rem(1px);
+
   }
 }
 
 // Outline Button
 a.btn-outline {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  cursor: pointer;
+  @extend %btn;
   color: $teil;
   padding: rem(15px);
   margin: auto;
   font: 400 rem(16px) $sans-serif;
   text-transform: uppercase;
   border: 1px solid $teil;
-  text-decoration: none;
   @include border-radius(3px);
   &:hover, 
   &:active {
+    
     //color: $blue;
     //border-color: $blue;
+  }
+}
+
+// Hamburger Button
+button.hamburger {
+  @extend %btn;  
+  // Button
+  padding: rem(5px) rem(8px);
+  background-color: transparent;
+  border: rem(2px) solid black(.09);
+  @include border-radius(100%);  
+  // Font
+  font: 400 rem(16px) $sans-serif;
+  color: $lighter-gray;
+  text-transform: uppercase;
+
+  &:hover, 
+  &:active {
+
+    //color: $blue;
+    //border-color: $blue;
+  }
+  .fa {
+    width: rem(20px);
+    height: rem(20px);
+    //background: red;
   }
 }

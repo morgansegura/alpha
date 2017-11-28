@@ -10,9 +10,9 @@
 @import "partials/rem.scss";
 @import "partials/_functions.scss";
 @import "partials/_mixins.scss";
-@import "partials/_flex.scss";
+@import "../../../node_modules/flexboxgrid-sass/flexboxgrid.scss";
 @import "modules/_buttons.scss";
-
+@import "partials/_media-queries.scss";
 
 // Defaults
 body {
@@ -56,49 +56,42 @@ hr {
     height: rem(1px);
 }
 
-span.break {
+span.break,
+img {
   display: block;
 }
 
-.app {
+img {
     width: 100%;
-    @include flexbox();
-    min-height: 100vh;
-    @include flex-direction(column);
+}
+.app {
     position: relative;
     font-family: $sans-serif;
 }
 .container {
-    @include flexbox();
-    @include flex(1);
+    margin: 0 auto;
+    width: 100%;
 }
 
 // Menu Section
 
 .menu {
-    @include flex(0 0 rem(300px));
     position: relative;
-    min-height: 100vh;
     z-index: 2;
     text-align: right;
-    background-color: $base-gray;
-    @include box-shadow(rem(30px) 0 rem(50px) black(.5));
     display: block;
     color: $light-gray;
+
     hr {
         background-color: darken($nav-border, 2%);
         margin-top: rem(15px); 
-    }
-    .fixed {
-        position: fixed;
-        width: rem(300px);
     }
     .logo-block {
         background-color: $white;
         padding: rem(30px);
         text-align: center;
-        font-family: $sans-serif;
-
+        font-family: $alternate;
+        display: block;
         h2 {
             font-size: rem(50px);
             color: $base-gray;
@@ -130,7 +123,7 @@ span.break {
             }
         }
         input[type="radio"] {
-            //visibility:hidden;
+            visibility:hidden;
         }
         .filtered {
             color: $white;
@@ -162,6 +155,7 @@ span.break {
                 font-size: rem(30px);
                 color: $white;
             }
+            margin-left: 0;
         }
         
         a:nth-child(2) {
@@ -217,12 +211,8 @@ span.break {
             text-transform: uppercase;
             @include transition(all .5s ease-in-out);             
             &:hover {
-                //background: $teil;
-               // background: linear-gradient($teil,darken($teil, 10%));
                @include transition(all .5s ease-in-out);               
-               background: linear-gradient(lighten($nav-gray1, 2%),lighten($nav-gray2, 2%));
-               
-
+               background: linear-gradient(lighten($nav-gray1, 2%),lighten($nav-gray2, 2%));            
             }
         }
         .router-link-exact-active.router-link-active          {
@@ -233,16 +223,152 @@ span.break {
 
 // Main Section
 
+.main {
+    .grid {
+        
+    }
+    .grid-cell {
+    
+    }
+}
+
 .content {    
     z-index: 1;
-    @include flex(1);
+}
+
+// About 
+
+.about {
+    border: rem(25px) solid #b4b7b8;
+    section,
+    aside {
+        padding: rem(30px);
+    }
+    section {
+        max-width: rem(780px);
+        border-right: 1px solid $lighter-gray;
+        margin-top: rem(30px);
+        padding-top: 0;
+    }
+    aside {
+        max-width: rem(750px);
+    }
+    h3 {
+        font-size: rem(24px);
+        color: $black;
+        padding: rem(10px) 0;
+    }
+    h3:nth-child(2) {
+        padding-top: 0;
+    }
+    p {
+        font-size: rem(18px);
+        color: $paragraph;
+        padding-bottom: rem(25px);
+    }
+    hr {
+        background-color: #ddd;
+    }
+    .headline-image {
+        max-width: rem(721px);
+        width: 100%;
+        display: block;
+    }
+    .staff {
+        .grid {
+            //@include flex-direction(row);
+            //@include justify-content(space-around);
+        }
+        .grid-cell {
+            margin-right: rem(5px);
+        }
+        
+        .grid-cell:last {
+            margin-right: 0;
+        }
+        img {
+            margin: 0 auto;
+            max-width: rem(227px);
+        }
+    }
+    .skills {
+        p {
+            color: $paragraph-drk;
+            font-size: rem(15px);
+            padding-bottom: 0;
+        }
+        progress {
+            background-color: $lighter-gray;
+            margin-bottom: rem(10px);
+            height: rem(30px);
+            width: 100%;
+            //@include animation(1s fadeout 0.05s forwards);
+        }
+        .meter { 
+            height: rem(30px);
+            position: relative;
+            background: $white;
+            border: 1px solid $lighter-gray;
+            margin-bottom: rem(10px);
+        }
+        .meter > span {
+            display: block;
+            height: 100%;
+            background-color: $teil;
+            position: relative;
+            overflow: hidden;
+        }
+        .meter > span:after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index: 1;
+            background-size: 50px 50px;
+            animation: move 2s linear infinite;
+            overflow: hidden;
+          }        
+    }
+    .services {
+        ul {
+            color: $paragraph;
+            list-style-type: disc; 
+            margin-left: rem(15px);
+        }
+        li {
+            font-size: rem(14px);
+            padding-top: rem(15px);
+        }
+    }
+    .testimonials {
+        .title-bar {
+
+            div {
+                max-width: rem(80px);
+                @include flex-basis(rem(80px));
+                background-color: $lighter-gray;
+            }
+            img {
+
+            }
+            p {
+                color: $white;
+                background-color: $teil;
+                padding: rem(28px) rem(25px);
+                font-size: 14px;
+            }
+        }
+        .quote {
+            border: solid $lighter-gray;
+            border-width: 0 1px 1px;
+            padding: rem(20px) rem(25px) 0 rem(25px);
+            margin-bottom: rem(10px);
+        }
+    }
 }
 .grid {
     .grid-cell {
         @include animation(1s fadein 0.5s forwards);
         @include opacity(0);
-        min-width: rem(320px);
-        max-width: rem(810px);
         color: $white;
         overflow: hidden;
         img {
@@ -311,5 +437,13 @@ span.break {
 		margin: 0;
 	}
 }
-
-@import "partials/_media-queries.scss";
+@keyframes slidein {
+	100% {
+        left: 0;
+	}
+}
+@keyframes slideout {
+	100% {
+        left: rem(-300px);
+	}
+}
